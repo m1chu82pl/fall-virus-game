@@ -9,7 +9,7 @@ const doctorTitleFirst = document.querySelector('.doctorTitle__first');
 const doctorTitleSecond = document.querySelector('.doctorTitle__second');
 
 
-let counter = 3;
+let counter = 0;
 let levelTime;
 
 function scoreLevel(counter) {
@@ -129,7 +129,7 @@ startButton.addEventListener("click", function () {
 
     buildVirusesTimer = setTimeout(buildViruses, levelTime);
 
-    if (counter >= 10) {
+    if (counter >= 100) {
       virusHome.removeChild(addImg);
       clearTimeout(buildVirusesTimer);
       console.log("masz: " + counter + " punktów. Czas skończyć grę!");
