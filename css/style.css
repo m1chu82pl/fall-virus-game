@@ -2,19 +2,87 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -24,8 +92,17 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -35,16 +112,20 @@ body {
   box-sizing: border-box;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: '';
   content: none;
 }
@@ -56,7 +137,8 @@ table {
 
 .wraper {
   position: absolute;
-  background-color: #e9f5a4;
+  background-color: white;
+  box-shadow: inset 0 0 50vw #c9a61c;
   height: 100%;
   width: 100%;
   left: 0;
@@ -69,10 +151,10 @@ table {
 .wraper .virus-home {
   background-color: #e9f5a4;
   flex-basis: 100%;
-  height: 10%;
 }
 
-.wraper .virus-home .virusImg, .wraper .virus-home .quarantine {
+.wraper .virus-home .virusImg,
+.wraper .virus-home .quarantine {
   position: absolute;
   width: 20vw;
   max-width: 130px;
@@ -84,7 +166,8 @@ table {
   transition: 4000ms linear;
 }
 
-.wraper .virus-home .virusImg__plus, .wraper .virus-home .quarantine__plus {
+.wraper .virus-home .virusImg__plus,
+.wraper .virus-home .quarantine__plus {
   position: absolute;
   width: 15vw;
   max-width: 110px;
@@ -100,21 +183,20 @@ table {
   background-color: #d16a6a;
   opacity: 0.3;
   flex-basis: 100%;
+  height: 15%;
   font-size: 10vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .start-game {
-  box-sizing: border-box;
-  background-color: #95df78;
-  box-shadow: 10px 10px 10px #3f3f3f;
-  border-radius: 3px;
   position: fixed;
-  height: 80%;
-  width: 90%;
-  top: 10%;
-  left: 5%;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: inset 0 0 50vw #c9a61c;
+  height: 100%;
+  width: 100%;
   padding: 10px;
   font-size: 2rem;
   display: flex;
@@ -124,27 +206,25 @@ table {
 }
 
 .start-game__instructions {
-  background-color: #95df78;
+  font-size: 1rem;
 }
 
 .start-game .tap {
   width: 90%;
-  background-color: #89ca6f;
-  box-shadow: 10px 10px 10px #3f3f3f;
-  border: 2px solid #7ab862;
+  box-shadow: 0px 0px 20px 5px #3f3f3f;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .start-game .tap__active {
-  box-shadow: 2px 2px 2px #3f3f3f;
+  box-shadow: 0px 0px 10px #3f3f3f;
   -webkit-transform: translate(5px, 5px);
           transform: translate(5px, 5px);
 }
 
 .doctorTitle {
   position: absolute;
-  background-color: rgba(209, 106, 106, 0.3);
+  background-color: rgba(248, 216, 87, 0.3);
   border-radius: 5px;
   height: 15%;
   width: 80%;
@@ -158,5 +238,77 @@ table {
   align-items: center;
   flex-wrap: wrap;
   transition: 300ms;
+}
+
+.end-game {
+  position: absolute;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: space-evenly;
+  box-shadow: inset 0 0 50vw #c9a61c;
+  overflow: hidden;
+  display: none;
+}
+
+.end-game__chill {
+  border-radius: 10px;
+  max-width: 80vw;
+}
+
+.end-game__dentist {
+  border-radius: 10px;
+  height: 40%;
+  -webkit-animation: 2s zoom-in;
+          animation: 2s zoom-in;
+}
+
+.end-game__button {
+  flex-basis: 80%;
+  height: 10%;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(170, 141, 23, 0);
+}
+
+@-webkit-keyframes zoom-in {
+  0% {
+    height: 40%;
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  50% {
+    height: 60%;
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+  100% {
+    height: 40%;
+    -webkit-transform: rotate(720deg);
+            transform: rotate(720deg);
+  }
+}
+
+@keyframes zoom-in {
+  0% {
+    height: 40%;
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  50% {
+    height: 60%;
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+  100% {
+    height: 40%;
+    -webkit-transform: rotate(720deg);
+            transform: rotate(720deg);
+  }
 }
 /*# sourceMappingURL=style.css.map */
