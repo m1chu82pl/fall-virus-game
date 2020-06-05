@@ -54,8 +54,8 @@ function theGame() {
     const minLeftPosition = 0;
     const maxLeftPosition = 80;
     let randomPosition = Math.floor(Math.random() * (maxLeftPosition - minLeftPosition + 1)) + minLeftPosition;
-    // let digit = Math.floor(Math.random() * 9) + 1;
-    let digit = 9;
+    let digit = Math.floor(Math.random() * 9) + 1;
+    // let digit = 9;
 
     const addImg = document.createElement("img");
     addImg.style.left = randomPosition + "%";
@@ -82,6 +82,17 @@ function theGame() {
       buildViruses();
     };
 
+    function handleAdd(e) {
+      e.preventDefault()
+      console.log("touchstart")
+      virusHome.removeChild(addImg);
+      counter++;
+      score.innerText = `score: ${counter}`;
+
+      clearTimeout(buildVirusesTimer);
+      buildViruses();
+    };
+
     // function handleInteraction(evt) {
     //   evt.preventDefault()
     //   console.log('interacted')
@@ -96,15 +107,8 @@ function theGame() {
       addImg.classList.add(`virusImg`);
       addImg.style.transition = `${levelTime}ms linear`;
 
-      addImg.addEventListener("touchstart", function () {
-        console.log("touchstart")
-        virusHome.removeChild(addImg);
-        counter++;
-        score.innerText = `score: ${counter}`;
-
-        clearTimeout(buildVirusesTimer);
-        buildViruses();
-      });
+      addImg.addEventListener("touchstart", handleAdd);
+      addImg.addEventListener("mousedown", handleAdd);
 
       window.setTimeout(function () {
         if (addImg.offsetTop > innerHeight) {
@@ -118,15 +122,8 @@ function theGame() {
       addImg.classList.add(`virusImg`);
       addImg.style.transition = `${levelTime}ms linear`;
 
-      addImg.addEventListener("touchstart", function () {
-        console.log("touchstart")
-        virusHome.removeChild(addImg);
-        counter++;
-        score.innerText = `score: ${counter}`;
-
-        clearTimeout(buildVirusesTimer);
-        buildViruses();
-      });
+      addImg.addEventListener("touchstart", handleAdd);
+      addImg.addEventListener("mousedown", handleAdd);
 
       window.setTimeout(function () {
         if (addImg.offsetTop > innerHeight) {
@@ -141,15 +138,8 @@ function theGame() {
       addImg.classList.add(`virusImg`);
       addImg.style.transition = `${levelTime}ms linear`;
 
-      addImg.addEventListener("touchstart", function () {
-        console.log("touchstart")
-        virusHome.removeChild(addImg);
-        counter++;
-        score.innerText = `score: ${counter}`;
-
-        clearTimeout(buildVirusesTimer);
-        buildViruses();
-      });
+      addImg.addEventListener("touchstart", handleAdd);
+      addImg.addEventListener("mousedown", handleAdd);
 
       window.setTimeout(function () {
         if (addImg.offsetTop > innerHeight) {
@@ -164,15 +154,8 @@ function theGame() {
       addImg.classList.add(`virusImg`);
       addImg.style.transition = `${levelTime}ms linear`;
 
-      addImg.addEventListener("touchstart", function () {
-        console.log("touchstart")
-        virusHome.removeChild(addImg);
-        counter++;
-        score.innerText = `score: ${counter}`;
-
-        clearTimeout(buildVirusesTimer);
-        buildViruses();
-      });
+      addImg.addEventListener("touchstart", handleAdd);
+      addImg.addEventListener("mousedown", handleAdd);
 
       window.setTimeout(function () {
         if (addImg.offsetTop > innerHeight) {
@@ -250,15 +233,8 @@ function theGame() {
       addImg.classList.add(`quarantine`);
       addImg.style.transition = `${levelTime}ms linear`;
 
-      addImg.addEventListener("touchstart", function () {
-        console.log("touchstart")
-        virusHome.removeChild(addImg);
-        counter--;
-        score.innerText = `score: ${counter}`;
-
-        clearTimeout(buildVirusesTimer);
-        buildViruses();
-      });
+      addImg.addEventListener("touchstart", handleSubtract);
+      addImg.addEventListener("mousedown", handleSubtract);
 
       window.setTimeout(function () {
         if (addImg.offsetTop > innerHeight) {
@@ -273,15 +249,8 @@ function theGame() {
       addImg.classList.add(`quarantine`);
       addImg.style.transition = `${levelTime}ms linear`;
 
-      addImg.addEventListener("touchstart", function () {
-        console.log("touchstart")
-        virusHome.removeChild(addImg);
-        counter--;
-        score.innerText = `score: ${counter}`;
-
-        clearTimeout(buildVirusesTimer);
-        buildViruses();
-      });
+      addImg.addEventListener("touchstart", handleSubtract);
+      addImg.addEventListener("mousedown", handleSubtract);
 
       window.setTimeout(function () {
         if (addImg.offsetTop > innerHeight) {
@@ -338,5 +307,5 @@ endGameButton.addEventListener("click", newGame);
 //   evt.preventDefault()
 //   console.log('interacted')
 // }
-// el.addEventListener('touchstart', handleInteraction)
-// el.addEventListener('click', handleInteraction)
+// el.addEventListener('touchstart', handleAdd)
+// el.addEventListener('click', handleAdd)
