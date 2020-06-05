@@ -1,88 +1,5 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+@charset "UTF-8";
+* {
   margin: 0;
   padding: 0;
   border: 0;
@@ -93,13 +10,8 @@ video {
 
 /* HTML5 display-role reset for older browsers */
 article,
-aside,
-details,
-figcaption,
-figure,
 footer,
 header,
-hgroup,
 menu,
 nav,
 section {
@@ -107,32 +19,8 @@ section {
 }
 
 body {
-  background-color: #e9f5a4;
-  line-height: 1;
   box-sizing: border-box;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+  font-family: 'Special Elite', cursive;
 }
 
 .wraper {
@@ -141,7 +29,11 @@ table {
   box-shadow: inset 0 0 50vw #c9a61c;
   height: 100%;
   width: 100%;
-  left: 0;
+  max-width: 640px;
+  min-width: 250px;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -156,8 +48,7 @@ table {
 .wraper .virus-home .virusImg,
 .wraper .virus-home .quarantine {
   position: absolute;
-  width: 20vw;
-  max-width: 130px;
+  width: 20%;
   top: 0;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
@@ -169,8 +60,7 @@ table {
 .wraper .virus-home .virusImg__plus,
 .wraper .virus-home .quarantine__plus {
   position: absolute;
-  width: 15vw;
-  max-width: 110px;
+  width: 15%;
   top: 0;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
@@ -188,6 +78,10 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .start-game {
@@ -197,6 +91,11 @@ table {
   box-shadow: inset 0 0 50vw #c9a61c;
   height: 100%;
   width: 100%;
+  min-width: 250px;
+  max-width: 640px;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
   padding: 10px;
   font-size: 2rem;
   display: flex;
@@ -206,7 +105,13 @@ table {
 }
 
 .start-game__instructions {
-  font-size: 1rem;
+  font-size: 2vh;
+  line-height: 110%;
+}
+
+.start-game__instructions--img {
+  height: 2vh;
+  width: auto;
 }
 
 .start-game .tap {
@@ -228,6 +133,7 @@ table {
   border-radius: 5px;
   height: 15%;
   width: 80%;
+  max-width: 640px;
   left: 50%;
   top: 70%;
   -webkit-transform: translate(-50%, -50%) scale(0);
@@ -245,11 +151,13 @@ table {
   background-color: white;
   height: 100%;
   width: 100%;
+  max-width: 640px;
+  min-width: 250px;
   left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   align-content: space-evenly;
   box-shadow: inset 0 0 50vw #c9a61c;
@@ -258,37 +166,57 @@ table {
 }
 
 .end-game__chill {
-  border-radius: 10px;
-  max-width: 80vw;
+  padding: 5px;
+}
+
+.end-game__chill--img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .end-game__dentist {
-  border-radius: 10px;
-  height: 40%;
-  -webkit-animation: 2s zoom-in;
-          animation: 2s zoom-in;
+  padding: 5px;
+  max-width: 480px;
+  display: flex;
+  justify-content: center;
+}
+
+.end-game__dentist--img {
+  width: 90%;
+  /* zmienić height w animacji na width */
+  height: auto;
+  -webkit-animation: 1.5s zoom-in .2s;
+          animation: 1.5s zoom-in .2s;
 }
 
 .end-game__button {
-  flex-basis: 80%;
-  height: 10%;
+  width: 60%;
+  height: 7%;
+  padding: 5px;
+}
+
+.end-game__button .button {
+  width: 100%;
+  height: 100%;
   background-color: rgba(255, 255, 255, 0);
-  border: 1px solid rgba(170, 141, 23, 0);
+  border: none;
+  font-family: 'Special Elite', cursive;
 }
 
 @-webkit-keyframes zoom-in {
   0% {
-    height: 40%;
+    width: 90%;
     -webkit-transform: rotate(0);
             transform: rotate(0);
   }
-  50% {
-    height: 60%;
-    -webkit-transform: rotate(-20deg);
-            transform: rotate(-20deg);
+  60% {
+    width: 110%;
+    -webkit-transform: rotate(740deg);
+            transform: rotate(740deg);
   }
   100% {
-    height: 40%;
+    width: 90%;
     -webkit-transform: rotate(720deg);
             transform: rotate(720deg);
   }
@@ -296,17 +224,17 @@ table {
 
 @keyframes zoom-in {
   0% {
-    height: 40%;
+    width: 90%;
     -webkit-transform: rotate(0);
             transform: rotate(0);
   }
-  50% {
-    height: 60%;
-    -webkit-transform: rotate(-20deg);
-            transform: rotate(-20deg);
+  60% {
+    width: 110%;
+    -webkit-transform: rotate(740deg);
+            transform: rotate(740deg);
   }
   100% {
-    height: 40%;
+    width: 90%;
     -webkit-transform: rotate(720deg);
             transform: rotate(720deg);
   }

@@ -8,7 +8,7 @@ const doctorTitle = document.querySelector('.doctorTitle');
 const doctorTitleFirst = document.querySelector('.doctorTitle__first');
 const doctorTitleSecond = document.querySelector('.doctorTitle__second');
 const endGame = document.querySelector('.end-game');
-const endGameButton = document.querySelector('.end-game__button');
+const endGameButton = document.querySelector('.button');
 
 
 let counter = 0;
@@ -24,19 +24,19 @@ function scoreLevel(counter) {
   } else if (counter >= 10 && counter < 20) {
     levelTime = 2000;
   } else if (counter >= 20 && counter < 30) {
-    levelTime = 1700;
+    levelTime = 1800;
   } else if (counter >= 30 && counter < 40) {
-    levelTime = 1600;
+    levelTime = 1700;
   } else if (counter >= 40 && counter < 50) {
-    levelTime = 1500;
+    levelTime = 1600;
   } else if (counter >= 50 && counter < 60) {
-    levelTime = 1400;
+    levelTime = 1500;
   } else if (counter >= 60 && counter < 70) {
-    levelTime = 1300;
+    levelTime = 1400;
   } else if (counter >= 70 && counter < 85) {
-    levelTime = 1200;
+    levelTime = 1300;
   } else {
-    levelTime = 1000;
+    levelTime = 1200;
   };
 };
 
@@ -76,7 +76,7 @@ function theGame() {
       addImg.classList.add(`virusImg`);
       addImg.style.transition = `${levelTime}ms linear`;
 
-      addImg.addEventListener("touchstart", function () {
+      addImg.addEventListener("mousedown", function () {
         virusHome.removeChild(addImg);
         counter++;
         score.innerText = `score: ${counter}`;
@@ -97,7 +97,7 @@ function theGame() {
       addImg.classList.add(`virusImg`);
       addImg.style.transition = `${levelTime}ms linear`;
 
-      addImg.addEventListener("touchstart", function () {
+      addImg.addEventListener("mousedown", function () {
         virusHome.removeChild(addImg);
         counter++;
         score.innerText = `score: ${counter}`;
@@ -119,7 +119,7 @@ function theGame() {
       addImg.classList.add(`virusImg`);
       addImg.style.transition = `${levelTime}ms linear`;
 
-      addImg.addEventListener("touchstart", function () {
+      addImg.addEventListener("mousedown", function () {
         virusHome.removeChild(addImg);
         counter++;
         score.innerText = `score: ${counter}`;
@@ -141,7 +141,7 @@ function theGame() {
       addImg.classList.add(`virusImg`);
       addImg.style.transition = `${levelTime}ms linear`;
 
-      addImg.addEventListener("touchstart", function () {
+      addImg.addEventListener("mousedown", function () {
         virusHome.removeChild(addImg);
         counter++;
         score.innerText = `score: ${counter}`;
@@ -163,7 +163,7 @@ function theGame() {
       addImg.classList.add(`virusImg__plus`);
       addImg.style.transition = `${levelTime - 200}ms ease-in-out`;
 
-      addImg.addEventListener("touchstart", function () {
+      addImg.addEventListener("mousedown", function () {
         virusHome.removeChild(addImg);
         counter += 2;
         score.innerText = `score: ${counter}`;
@@ -185,7 +185,7 @@ function theGame() {
       addImg.classList.add(`quarantine__plus`);
       addImg.style.transition = `${levelTime - 200}ms ease-in-out`;
 
-      addImg.addEventListener("touchstart", function () {
+      addImg.addEventListener("mousedown", function () {
         let randomScoreDoctor = Math.floor(Math.random() * 10) + 1;
         if ((randomScoreDoctor) % 2) {
           counter += randomScoreDoctor;
@@ -224,7 +224,7 @@ function theGame() {
       addImg.classList.add(`quarantine`);
       addImg.style.transition = `${levelTime}ms linear`;
 
-      addImg.addEventListener("touchstart", function () {
+      addImg.addEventListener("mousedown", function () {
         virusHome.removeChild(addImg);
         counter--;
         score.innerText = `score: ${counter}`;
@@ -246,7 +246,7 @@ function theGame() {
       addImg.classList.add(`quarantine`);
       addImg.style.transition = `${levelTime}ms linear`;
 
-      addImg.addEventListener("touchstart", function () {
+      addImg.addEventListener("mousedown", function () {
         virusHome.removeChild(addImg);
         counter--;
         score.innerText = `score: ${counter}`;
@@ -268,7 +268,7 @@ function theGame() {
       addImg.classList.add(`quarantine`);
       addImg.style.transition = `${levelTime}ms linear`;
 
-      addImg.addEventListener("touchstart", function () {
+      addImg.addEventListener("mousedown", function () {
         virusHome.removeChild(addImg);
         counter--;
         score.innerText = `score: ${counter}`;
@@ -300,17 +300,11 @@ function theGame() {
       }, 2000);
     };
   }, levelTime);
-
-
 };
 
 function newGame() {
-  // counter = 94;
-  // scoreLevel(counter);
   endGame.style.display = "none";
   startGame.style.display = "flex";
-  // clearTimeout(buildVirusesTimer);
-  // theGame();
 };
 
 startButton.addEventListener("click", theGame);

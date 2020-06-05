@@ -1,89 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+* {
   margin: 0;
   padding: 0;
   border: 0;
@@ -94,13 +9,8 @@ video {
 
 /* HTML5 display-role reset for older browsers */
 article,
-aside,
-details,
-figcaption,
-figure,
 footer,
 header,
-hgroup,
 menu,
 nav,
 section {
@@ -108,33 +18,12 @@ section {
 }
 
 body {
-  background-color: rgb(233, 245, 164);
-  line-height: 1;
+  // background-color: rgb(209, 189, 109);
+  // line-height: 1;
   box-sizing: border-box;
+  font-family: 'Special Elite', cursive;
 }
 
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
 
 // this is my code 
 
@@ -144,7 +33,10 @@ table {
   box-shadow: inset 0 0 50vw rgb(201, 166, 28);
   height: 100%;
   width: 100%;
-  left: 0;
+  max-width: 640px;
+  min-width: 250px;
+  left: 50%;
+  transform: translate(-50%);
   // bottom: 0;
   display: flex;
   align-items: flex-start;
@@ -161,8 +53,8 @@ table {
       position: absolute;
       // background-color: rgb(233, 245, 164);
       // background-color: rgb(241, 16, 16);
-      width: 20vw;
-      max-width: 130px;
+      width: 20%;
+      // max-width: 130px;
       top: 0;
       transform: translateY(-100%);
       left: 0;
@@ -171,8 +63,8 @@ table {
 
       &__plus {
         position: absolute;
-        width: 15vw;
-        max-width: 110px;
+        width: 15%;
+        // max-width: 110px;
         top: 0;
         transform: translateY(-100%);
         left: 0;
@@ -191,7 +83,8 @@ table {
     display: flex;
     justify-content: center;
     align-items: center;
-    // display: none;
+    user-select: none;
+    // display: none;   
   }
 }
 
@@ -203,6 +96,10 @@ table {
   // border-radius: 3px;
   height: 100%;
   width: 100%;
+  min-width: 250px;
+  max-width: 640px;
+  left: 50%;
+  transform: translate(-50%);
   // top: 10%;
   // left: 5%;
   padding: 10px;
@@ -214,8 +111,16 @@ table {
   // display: none;
 
   &__instructions {
-    font-size: 1rem;
-    // background-color: rgb(149, 223, 120);
+    font-size: 2vh;
+    line-height: 110%;
+    // font-family: 'Montserrat Subrayada', sans-serif;
+
+
+    &--img {
+        // background-color: rgb(73, 8, 8);
+        height: 2vh;
+        width: auto;
+    }
   }
 
   .tap {
@@ -240,6 +145,7 @@ table {
   border-radius: 5px;
   height: 15%;
   width: 80%;
+  max-width: 640px;
   left: 50%;
   top: 70%;
   transform: translate(-50%, -50%) scale(0);
@@ -256,60 +162,109 @@ table {
   background-color: rgb(255, 255, 255);
   height: 100%;
   width: 100%;
+  max-width: 640px;
+  min-width: 250px;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
   // display: flex;
   justify-content: center;
-  // align-items: center;
+  align-items: center;
   flex-wrap: wrap;
   align-content: space-evenly;
+  // align-content: center;
   box-shadow: inset 0 0 50vw rgb(201, 166, 28);
   overflow: hidden;
   display: none;
-  
+
   &__chill {
-    border-radius: 10px;
-    max-width: 80vw;
-    // flex-basis: 40%;
-    // height: 20%;
-    // box-shadow: 0px 0px 70px rgb(201, 166, 28);
-    // display: none;
-    // animation: 2s zoom-in;
+    padding: 5px;
+
+    &--img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
   }
 
   &__dentist {
-    border-radius: 10px;
-    // flex-basis: 60%;
-    height: 40%;
-    // box-shadow: 0px 0px 70px rgb(201, 166, 28);
-    animation: 2s zoom-in;
+    padding: 5px;
+    max-width: 480px;
+    display: flex;
+    justify-content: center;
+
+    &--img {
+      width: 90%;
+      /* zmienić height w animacji na width */
+      height: auto;
+      // max-height: 50vh;
+      // display: block;
+      animation: 1.5s zoom-in .2s;
+    }
   }
 
   &__button {
-    flex-basis: 80%;
-    height: 10%;
-    // margin: 0 30%;
-    background-color: rgba(255, 255, 255, 0);
-    border: 1px solid rgba(170, 141, 23, 0) ;
+    width: 60%;
+    height: 7%;
+    padding: 5px;
+
+    .button {
+      width: 100%;
+      height: 100%;
+      // display: block;
+      background-color: rgba(255, 255, 255, 0);
+      border: none;
+      font-family: 'Special Elite', cursive;
+    }
   }
+
+  // &__chill {
+  //   border-radius: 10px;
+  //   // max-width: 80vw;
+  //   flex-basis: 0;
+  //   // min-width: 100px;
+  //   // height: 40%;
+  //   // min-height: 20px;
+  //   // box-shadow: 0px 0px 70px rgb(201, 166, 28);
+  //   // display: none;
+  //   // animation: 2s zoom-in;
+  // }
+
+  // &__dentist {
+  //   border-radius: 10px;
+  //   height: auto;
+  //   // min-width: 100px;
+  //   // height: 40%;
+  //   // min-height: 20px;
+  //   // width: 40%;
+  //   // height: 40%;
+  //   // box-shadow: 0px 0px 70px rgb(201, 166, 28);
+  //   // animation: 2s zoom-in;
+  // }
+
+  // &__button {
+  //   flex-basis: 60%;
+  //   height: 10%;
+  //   // margin: 0 30%;
+  //   background-color: rgba(255, 255, 255, 0);
+  //   border: 1px solid rgba(170, 141, 23, 0);
+  // }
 }
 
 @keyframes zoom-in {
   0% {
-    height: 40%;
+    width: 90%;
     // box-shadow: 0px 0px 70px rgb(201, 166, 28);
     transform: rotate(0);
   }
 
-  50% {
-    height: 60%;
+  60% {
+    width: 110%;
     // box-shadow: 0px 0px 10px rgb(201, 166, 28);
-    transform: rotate(-20deg);
+    transform: rotate(740deg);
   }
 
   100% {
-    height: 40%;
+    width: 90%;
     // box-shadow: 0px 0px 70px rgb(201, 166, 28);
     transform: rotate(720deg);
   }
