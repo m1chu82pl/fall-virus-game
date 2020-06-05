@@ -145,6 +145,13 @@ body {
   transition: 300ms;
 }
 
+.doctorTitle__first, .doctorTitle__second {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .end-game {
   position: absolute;
   background-color: white;

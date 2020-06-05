@@ -54,8 +54,8 @@ function theGame() {
     const minLeftPosition = 0;
     const maxLeftPosition = 80;
     let randomPosition = Math.floor(Math.random() * (maxLeftPosition - minLeftPosition + 1)) + minLeftPosition;
-    let digit = Math.floor(Math.random() * 9) + 1;
-    // let digit = 1;
+    // let digit = Math.floor(Math.random() * 9) + 1;
+    let digit = 9;
 
     const addImg = document.createElement("img");
     addImg.style.left = randomPosition + "%";
@@ -71,12 +71,33 @@ function theGame() {
     scoreLevel(counter);
     console.log(levelTime);
 
+    function handleSubtract(e) {
+      e.preventDefault()
+      console.log("touchstart")
+      virusHome.removeChild(addImg);
+      counter--;
+      score.innerText = `score: ${counter}`;
+
+      clearTimeout(buildVirusesTimer);
+      buildViruses();
+    };
+
+    // function handleInteraction(evt) {
+    //   evt.preventDefault()
+    //   console.log('interacted')
+    // }
+
+
+
+
+
     if (digit === 1) {
       addImg.setAttribute("src", `images/coronavirus1.png`);
       addImg.classList.add(`virusImg`);
       addImg.style.transition = `${levelTime}ms linear`;
 
       addImg.addEventListener("touchstart", function () {
+        console.log("touchstart")
         virusHome.removeChild(addImg);
         counter++;
         score.innerText = `score: ${counter}`;
@@ -98,6 +119,7 @@ function theGame() {
       addImg.style.transition = `${levelTime}ms linear`;
 
       addImg.addEventListener("touchstart", function () {
+        console.log("touchstart")
         virusHome.removeChild(addImg);
         counter++;
         score.innerText = `score: ${counter}`;
@@ -120,6 +142,7 @@ function theGame() {
       addImg.style.transition = `${levelTime}ms linear`;
 
       addImg.addEventListener("touchstart", function () {
+        console.log("touchstart")
         virusHome.removeChild(addImg);
         counter++;
         score.innerText = `score: ${counter}`;
@@ -142,6 +165,7 @@ function theGame() {
       addImg.style.transition = `${levelTime}ms linear`;
 
       addImg.addEventListener("touchstart", function () {
+        console.log("touchstart")
         virusHome.removeChild(addImg);
         counter++;
         score.innerText = `score: ${counter}`;
@@ -164,6 +188,7 @@ function theGame() {
       addImg.style.transition = `${levelTime - 200}ms ease-in-out`;
 
       addImg.addEventListener("touchstart", function () {
+        console.log("touchstart")
         virusHome.removeChild(addImg);
         counter += 2;
         score.innerText = `score: ${counter}`;
@@ -186,6 +211,7 @@ function theGame() {
       addImg.style.transition = `${levelTime - 200}ms ease-in-out`;
 
       addImg.addEventListener("touchstart", function () {
+        console.log("touchstart")
         let randomScoreDoctor = Math.floor(Math.random() * 10) + 1;
         if ((randomScoreDoctor) % 2) {
           counter += randomScoreDoctor;
@@ -225,6 +251,7 @@ function theGame() {
       addImg.style.transition = `${levelTime}ms linear`;
 
       addImg.addEventListener("touchstart", function () {
+        console.log("touchstart")
         virusHome.removeChild(addImg);
         counter--;
         score.innerText = `score: ${counter}`;
@@ -247,6 +274,7 @@ function theGame() {
       addImg.style.transition = `${levelTime}ms linear`;
 
       addImg.addEventListener("touchstart", function () {
+        console.log("touchstart")
         virusHome.removeChild(addImg);
         counter--;
         score.innerText = `score: ${counter}`;
@@ -268,14 +296,8 @@ function theGame() {
       addImg.classList.add(`quarantine`);
       addImg.style.transition = `${levelTime}ms linear`;
 
-      addImg.addEventListener("touchstart", function () {
-        virusHome.removeChild(addImg);
-        counter--;
-        score.innerText = `score: ${counter}`;
-
-        clearTimeout(buildVirusesTimer);
-        buildViruses();
-      });
+      addImg.addEventListener("touchstart", handleSubtract);
+      addImg.addEventListener("mousedown", handleSubtract);
 
       window.setTimeout(function () {
         if (addImg.offsetTop > innerHeight) {
@@ -309,3 +331,12 @@ function newGame() {
 
 startButton.addEventListener("click", theGame);
 endGameButton.addEventListener("click", newGame);
+
+
+
+// function handleInteraction(evt) {
+//   evt.preventDefault()
+//   console.log('interacted')
+// }
+// el.addEventListener('touchstart', handleInteraction)
+// el.addEventListener('click', handleInteraction)
