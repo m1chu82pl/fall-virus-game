@@ -78,8 +78,9 @@ body {
     background-color: rgb(209, 106, 106);
     opacity: 0.3;
     flex-basis: 100%;
-    height: 15%;
+    // height: 15%;
     font-size: 10vh;
+    padding: 5px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,6 +114,10 @@ body {
   &__instructions {
     font-size: 2vh;
     line-height: 110%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     // font-family: 'Montserrat Subrayada', sans-serif;
 
 
@@ -120,6 +125,10 @@ body {
       // background-color: rgb(73, 8, 8);
       height: 2vh;
       width: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
     }
   }
 
@@ -144,7 +153,7 @@ body {
   background-color: rgba(248, 216, 87, 0.3);
   border-radius: 5px;
   height: 15%;
-  width: 80%;
+  width: 100%;
   max-width: 640px;
   left: 50%;
   top: 70%;

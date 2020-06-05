@@ -10,7 +10,6 @@ const doctorTitleSecond = document.querySelector('.doctorTitle__second');
 const endGame = document.querySelector('.end-game');
 const endGameButton = document.querySelector('.button');
 
-
 let counter = 0;
 let levelTime;
 
@@ -55,7 +54,6 @@ function theGame() {
     const maxLeftPosition = 80;
     let randomPosition = Math.floor(Math.random() * (maxLeftPosition - minLeftPosition + 1)) + minLeftPosition;
     let digit = Math.floor(Math.random() * 9) + 1;
-    // let digit = 9;
 
     const addImg = document.createElement("img");
     addImg.style.left = randomPosition + "%";
@@ -69,217 +67,155 @@ function theGame() {
     },100);
     
     scoreLevel(counter);
-    console.log(levelTime);
 
     function handleSubtract(e) {
-      e.preventDefault()
-      console.log("touchstart")
+      e.preventDefault();
       virusHome.removeChild(addImg);
       counter--;
       score.innerText = `score: ${counter}`;
-
       clearTimeout(buildVirusesTimer);
       buildViruses();
     };
 
     function handleAdd(e) {
-      e.preventDefault()
-      console.log("touchstart")
+      e.preventDefault();
       virusHome.removeChild(addImg);
       counter++;
       score.innerText = `score: ${counter}`;
+      clearTimeout(buildVirusesTimer);
+      buildViruses();
+    };
+
+    function virusOutOfView() {
+      if (addImg.offsetTop > innerHeight) {
+        virusHome.removeChild(addImg);
+        counter--;
+        score.innerText = `score: ${counter}`;
+      }
+    };
+    
+    function positiveOutOfView() {
+      if (addImg.offsetTop > innerHeight) {
+        virusHome.removeChild(addImg);
+        counter++;
+        score.innerText = `score: ${counter}`;
+      }
+    };
+
+    function handleAdd2(e) {
+      e.preventDefault();
+      virusHome.removeChild(addImg);
+      counter += 2;
+      score.innerText = `score: ${counter}`;
+      clearTimeout(buildVirusesTimer);
+      buildViruses();
+    };
+
+    function touchDentist(e) {
+      e.preventDefault();
+      let randomScoreDoctor = Math.floor(Math.random() * 10) + 1;
+      if ((randomScoreDoctor) % 2) {
+        counter += randomScoreDoctor;
+        doctorTitleFirst.innerText = "Chętnie pomogę!";
+        doctorTitleSecond.innerText = `dostajesz: ${randomScoreDoctor}`;
+        doctorTitle.style.transform = "translate(-50%, -50%) scale(1)";
+        setTimeout(function () {
+          doctorTitle.style.transform = "translate(-50%, -50%) scale(0)";
+        }, levelTime / 2);
+      } else {
+        counter -= randomScoreDoctor;
+        doctorTitleFirst.innerText = "Mamy kolejny zgon!!!";
+        doctorTitleSecond.innerText = `tracisz: ${randomScoreDoctor}`;
+        doctorTitle.style.transform = "translate(-50%, -50%) scale(1)";
+        setTimeout(function () {
+          doctorTitle.style.transform = "translate(-50%, -50%) scale(0)";
+        }, levelTime / 2);
+      };
+      score.innerText = `score: ${counter}`;
+      virusHome.removeChild(event.target);
 
       clearTimeout(buildVirusesTimer);
       buildViruses();
     };
 
-    // function handleInteraction(evt) {
-    //   evt.preventDefault()
-    //   console.log('interacted')
-    // }
-
-
-
-
-
     if (digit === 1) {
       addImg.setAttribute("src", `images/coronavirus1.png`);
       addImg.classList.add(`virusImg`);
       addImg.style.transition = `${levelTime}ms linear`;
-
       addImg.addEventListener("touchstart", handleAdd);
       addImg.addEventListener("mousedown", handleAdd);
-
-      window.setTimeout(function () {
-        if (addImg.offsetTop > innerHeight) {
-          virusHome.removeChild(addImg);
-          counter--;
-          score.innerText = `score: ${counter}`;
-        }
-      }, levelTime);
+      window.setTimeout(virusOutOfView, levelTime);
     } else if (digit === 2) {
       addImg.setAttribute("src", `images/coronavirus2.png`);
       addImg.classList.add(`virusImg`);
       addImg.style.transition = `${levelTime}ms linear`;
-
       addImg.addEventListener("touchstart", handleAdd);
       addImg.addEventListener("mousedown", handleAdd);
-
-      window.setTimeout(function () {
-        if (addImg.offsetTop > innerHeight) {
-          virusHome.removeChild(addImg);
-          counter--;
-          score.innerText = `score: ${counter}`;
-        }
-      }, levelTime);
-
+      window.setTimeout(virusOutOfView, levelTime);
     } else if (digit === 3) {
       addImg.setAttribute("src", `images/coronavirus3.png`);
       addImg.classList.add(`virusImg`);
       addImg.style.transition = `${levelTime}ms linear`;
-
       addImg.addEventListener("touchstart", handleAdd);
       addImg.addEventListener("mousedown", handleAdd);
-
-      window.setTimeout(function () {
-        if (addImg.offsetTop > innerHeight) {
-          virusHome.removeChild(addImg);
-          counter--;
-          score.innerText = `score: ${counter}`;
-        }
-      }, levelTime);
-
+      window.setTimeout(virusOutOfView, levelTime);
     } else if (digit === 4) {
       addImg.setAttribute("src", `images/coronavirus4.png`);
       addImg.classList.add(`virusImg`);
       addImg.style.transition = `${levelTime}ms linear`;
-
       addImg.addEventListener("touchstart", handleAdd);
       addImg.addEventListener("mousedown", handleAdd);
-
-      window.setTimeout(function () {
-        if (addImg.offsetTop > innerHeight) {
-          virusHome.removeChild(addImg);
-          counter--;
-          score.innerText = `score: ${counter}`;
-        }
-      }, levelTime);
-
+      window.setTimeout(virusOutOfView, levelTime);
     } else if (digit === 5) {
       addImg.setAttribute("src", `images/coronavirus5.png`);
       addImg.classList.add(`virusImg__plus`);
       addImg.style.transition = `${levelTime - 200}ms ease-in-out`;
-
-      addImg.addEventListener("touchstart", function () {
-        console.log("touchstart")
-        virusHome.removeChild(addImg);
-        counter += 2;
-        score.innerText = `score: ${counter}`;
-
-        clearTimeout(buildVirusesTimer);
-        buildViruses();
-      });
-
+      addImg.addEventListener("touchstart", handleAdd2);
+      addImg.addEventListener("mousedown", handleAdd2);
       window.setTimeout(function () {
         if (addImg.offsetTop > innerHeight) {
           virusHome.removeChild(addImg);
-          counter -= 2;
+          counter -= 2; /* virusOutOfView have got counter -1 */
           score.innerText = `score: ${counter}`;
-        }
+        };
       }, levelTime);
-
     } else if (digit === 6) {
       addImg.setAttribute("src", `images/dentist.png`);
       addImg.classList.add(`quarantine__plus`);
-      addImg.style.transition = `${levelTime - 200}ms ease-in-out`;
-
-      addImg.addEventListener("touchstart", function () {
-        console.log("touchstart")
-        let randomScoreDoctor = Math.floor(Math.random() * 10) + 1;
-        if ((randomScoreDoctor) % 2) {
-          counter += randomScoreDoctor;
-          doctorTitleFirst.innerText = "Chętnie pomogę!";
-          doctorTitleSecond.innerText = `dostajesz: ${randomScoreDoctor}`;
-          doctorTitle.style.transform = "translate(-50%, -50%) scale(1)";
-          setTimeout(function () {
-            doctorTitle.style.transform = "translate(-50%, -50%) scale(0)";
-          }, levelTime / 2);
-        } else {
-          counter -= randomScoreDoctor;
-          doctorTitleFirst.innerText = "Mamy kolejny zgon!!!";
-          doctorTitleSecond.innerText = `tracisz: ${randomScoreDoctor}`;
-          doctorTitle.style.transform = "translate(-50%, -50%) scale(1)";
-          setTimeout(function () {
-            doctorTitle.style.transform = "translate(-50%, -50%) scale(0)";
-          }, levelTime / 2);
-        };
-        score.innerText = `score: ${counter}`;
-        virusHome.removeChild(event.target);
-
-        clearTimeout(buildVirusesTimer);
-        buildViruses();
-      });
-
+      addImg.style.transition = `${levelTime - 200}ms ease-in-out`;      
+      addImg.addEventListener("touchstart", touchDentist);
+      addImg.addEventListener("mousedown", touchDentist);
       window.setTimeout(function () {
         if (addImg.offsetTop > innerHeight) {
           virusHome.removeChild(addImg);
-          counter += 2;
+          counter += 2; /* virusOutOfView have got counter -1 */
           score.innerText = `score: ${counter}`;
-        }
+        };
       }, levelTime);
-
     } else if (digit === 7) {
       addImg.setAttribute("src", `images/dont panic.png`);
       addImg.classList.add(`quarantine`);
       addImg.style.transition = `${levelTime}ms linear`;
-
       addImg.addEventListener("touchstart", handleSubtract);
       addImg.addEventListener("mousedown", handleSubtract);
-
-      window.setTimeout(function () {
-        if (addImg.offsetTop > innerHeight) {
-          virusHome.removeChild(addImg);
-          counter++;
-          score.innerText = `score: ${counter}`;
-        }
-      }, levelTime);
-
+      window.setTimeout(positiveOutOfView, levelTime);
     } else if (digit === 8) {
       addImg.setAttribute("src", `images/happy.png`);
       addImg.classList.add(`quarantine`);
       addImg.style.transition = `${levelTime}ms linear`;
-
       addImg.addEventListener("touchstart", handleSubtract);
       addImg.addEventListener("mousedown", handleSubtract);
-
-      window.setTimeout(function () {
-        if (addImg.offsetTop > innerHeight) {
-          virusHome.removeChild(addImg);
-          counter++;
-          score.innerText = `score: ${counter}`;
-        }
-      }, levelTime);
-
+      window.setTimeout(positiveOutOfView, levelTime);
     } else {
       addImg.setAttribute("src", `images/stay positive.png`);
       addImg.classList.add(`quarantine`);
       addImg.style.transition = `${levelTime}ms linear`;
-
       addImg.addEventListener("touchstart", handleSubtract);
       addImg.addEventListener("mousedown", handleSubtract);
-
-      window.setTimeout(function () {
-        if (addImg.offsetTop > innerHeight) {
-          virusHome.removeChild(addImg);
-          counter++;
-          score.innerText = `score: ${counter}`;
-        }
-      }, levelTime);
+      window.setTimeout(positiveOutOfView, levelTime);
     };
     virusHome.appendChild(addImg);
-
     buildVirusesTimer = setTimeout(buildViruses, levelTime);
-
     if (counter >= 100) {
       virusHome.removeChild(addImg);
       clearTimeout(buildVirusesTimer);
@@ -300,12 +236,3 @@ function newGame() {
 
 startButton.addEventListener("click", theGame);
 endGameButton.addEventListener("click", newGame);
-
-
-
-// function handleInteraction(evt) {
-//   evt.preventDefault()
-//   console.log('interacted')
-// }
-// el.addEventListener('touchstart', handleAdd)
-// el.addEventListener('click', handleAdd)
