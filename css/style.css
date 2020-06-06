@@ -99,30 +99,36 @@ body {
   font-size: 2rem;
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
 }
 
 .start-game__instructions {
-  font-size: 2vh;
-  line-height: 110%;
+  height: 80%;
+  width: 100%;
+  min-width: 250px;
+  font-size: 3vh;
+  line-height: 130%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 
 .start-game__instructions--img {
-  height: 2vh;
-  width: auto;
+  height: 7%;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  flex-wrap: wrap;
+}
+
+.start-game__instructions--img .little-img {
+  height: auto;
+  width: 10%;
 }
 
 .start-game .tap {
-  width: 90%;
+  width: 80%;
   box-shadow: 0px 0px 20px 5px #3f3f3f;
   border-radius: 5px;
   cursor: pointer;
