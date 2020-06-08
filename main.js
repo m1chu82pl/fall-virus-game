@@ -1,4 +1,4 @@
-const startButton = document.querySelector(".tap");
+const startButton = document.querySelector(".tap__img");
 const startGame = document.querySelector(".start-game");
 const virusHome = document.querySelector(".virus-home");
 const score = document.querySelector('.score');
@@ -40,9 +40,9 @@ function scoreLevel(counter) {
 };
 
 function theGame() {
-  startButton.classList.add("tap__active");
+  startButton.classList.add("tap__img--active");
   window.setTimeout(function () {
-    startButton.classList.remove("tap__active");
+    startButton.classList.remove("tap__img--active");
   }, 150);
   
   window.setTimeout(function () {
@@ -53,7 +53,8 @@ function theGame() {
     const minLeftPosition = 0;
     const maxLeftPosition = 80;
     let randomPosition = Math.floor(Math.random() * (maxLeftPosition - minLeftPosition + 1)) + minLeftPosition;
-    let digit = Math.floor(Math.random() * 9) + 1;
+    // let digit = Math.floor(Math.random() * 9) + 1;
+    let digit = 6;
 
     const addImg = document.createElement("img");
     addImg.style.left = randomPosition + "%";
@@ -116,16 +117,16 @@ function theGame() {
       let randomScoreDoctor = Math.floor(Math.random() * 10) + 1;
       if ((randomScoreDoctor) % 2) {
         counter += randomScoreDoctor;
-        doctorTitleFirst.innerText = "Chętnie pomogę!";
-        doctorTitleSecond.innerText = `dostajesz: ${randomScoreDoctor}`;
+        doctorTitleFirst.innerText = "I'll save your life!";
+        doctorTitleSecond.innerText = `you've got: ${randomScoreDoctor}`;
         doctorTitle.style.transform = "translate(-50%, -50%) scale(1)";
         setTimeout(function () {
           doctorTitle.style.transform = "translate(-50%, -50%) scale(0)";
         }, levelTime / 2);
       } else {
         counter -= randomScoreDoctor;
-        doctorTitleFirst.innerText = "Mamy kolejny zgon!!!";
-        doctorTitleSecond.innerText = `tracisz: ${randomScoreDoctor}`;
+        doctorTitleFirst.innerText = "We've got another death!";
+        doctorTitleSecond.innerText = `you lose: ${randomScoreDoctor}`;
         doctorTitle.style.transform = "translate(-50%, -50%) scale(1)";
         setTimeout(function () {
           doctorTitle.style.transform = "translate(-50%, -50%) scale(0)";
