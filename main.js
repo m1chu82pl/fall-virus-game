@@ -53,8 +53,7 @@ function theGame() {
     const minLeftPosition = 0;
     const maxLeftPosition = 80;
     let randomPosition = Math.floor(Math.random() * (maxLeftPosition - minLeftPosition + 1)) + minLeftPosition;
-    // let digit = Math.floor(Math.random() * 9) + 1;
-    let digit = 6;
+    let digit = Math.floor(Math.random() * 9) + 1;
 
     const addImg = document.createElement("img");
     addImg.style.left = randomPosition + "%";
