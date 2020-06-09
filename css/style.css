@@ -100,6 +100,10 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .start-game__instructions {
@@ -130,7 +134,7 @@ body {
 .start-game__instructions--img .little-img {
   height: auto;
   width: 10%;
-  margin: 0 5px;
+  margin: 0 2vw;
 }
 
 .start-game .tap {
@@ -164,7 +168,6 @@ body {
           transform: translate(-50%, -50%) scale(0);
   font-size: 1.5rem;
   border-radius: 5px;
-  color: #56a835;
   display: flex;
   justify-content: center;
   align-items: center;
