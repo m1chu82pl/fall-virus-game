@@ -155,7 +155,6 @@ body {
 
 .doctorTitle {
   position: absolute;
-  border-radius: 5px;
   height: 15%;
   width: 100%;
   max-width: 640px;
@@ -164,6 +163,8 @@ body {
   -webkit-transform: translate(-50%, -50%) scale(0);
           transform: translate(-50%, -50%) scale(0);
   font-size: 1.5rem;
+  border-radius: 5px;
+  color: #56a835;
   display: flex;
   justify-content: center;
   align-items: center;

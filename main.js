@@ -53,7 +53,8 @@ function theGame() {
     const minLeftPosition = 0;
     const maxLeftPosition = 80;
     let randomPosition = Math.floor(Math.random() * (maxLeftPosition - minLeftPosition + 1)) + minLeftPosition;
-    let digit = Math.floor(Math.random() * 9) + 1;
+    // let digit = Math.floor(Math.random() * 9) + 1;
+    let digit = 6;
 
     const addImg = document.createElement("img");
     addImg.style.left = randomPosition + "%";
@@ -117,8 +118,9 @@ function theGame() {
       if ((randomScoreDoctor) % 2) {
         counter += randomScoreDoctor;
         doctorTitleFirst.innerText = "I'll save your life!";
-        doctorTitleSecond.innerText = `you've got: ${randomScoreDoctor}`;
+        doctorTitleSecond.innerText = `you get: ${randomScoreDoctor}`;
         doctorTitle.style.transform = "translate(-50%, -50%) scale(1)";
+        doctorTitle.style.color = "rgb(86, 168, 53)";
         setTimeout(function () {
           doctorTitle.style.transform = "translate(-50%, -50%) scale(0)";
         }, levelTime / 2);
@@ -127,6 +129,7 @@ function theGame() {
         doctorTitleFirst.innerText = "We've got another death!";
         doctorTitleSecond.innerText = `you lose: ${randomScoreDoctor}`;
         doctorTitle.style.transform = "translate(-50%, -50%) scale(1)";
+        doctorTitle.style.color = "rgb(182, 68, 68)";
         setTimeout(function () {
           doctorTitle.style.transform = "translate(-50%, -50%) scale(0)";
         }, levelTime / 2);
