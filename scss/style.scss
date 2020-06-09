@@ -94,6 +94,7 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  align-content: space-evenly;  
   user-select: none;
   
   &__instructions {
@@ -195,16 +196,19 @@ body {
   flex-wrap: wrap;
   align-content: space-evenly;
   box-shadow: inset 0 0 50vw rgb(201, 166, 28);
+  cursor: default;
   overflow: hidden;
   display: none;
 
   &__chill {
     padding: 5px;
+    max-width: 480px;
+    display: flex;
+    justify-content: center;
 
     &--img {
-      width: 100%;
+      width: 80%;
       height: auto;
-      display: block;
     }
   }
 
@@ -223,15 +227,17 @@ body {
 
   &__button {
     width: 60%;
-    height: 7%;
+    height: 8%;
     padding: 5px;
-
+    
     .button {
       width: 100%;
       height: 100%;
       background-color: rgba(255, 255, 255, 0);
       border: none;
+      font-size: 1.5rem;
       font-family: 'VT323', monospace, sans-serif;
+      cursor: pointer;
     }
   }
 }

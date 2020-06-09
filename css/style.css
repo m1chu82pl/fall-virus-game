@@ -102,6 +102,7 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  align-content: space-evenly;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -212,18 +213,21 @@ body {
   flex-wrap: wrap;
   align-content: space-evenly;
   box-shadow: inset 0 0 50vw #c9a61c;
+  cursor: default;
   overflow: hidden;
   display: none;
 }
 
 .end-game__chill {
   padding: 5px;
+  max-width: 480px;
+  display: flex;
+  justify-content: center;
 }
 
 .end-game__chill--img {
-  width: 100%;
+  width: 80%;
   height: auto;
-  display: block;
 }
 
 .end-game__dentist {
@@ -242,7 +246,7 @@ body {
 
 .end-game__button {
   width: 60%;
-  height: 7%;
+  height: 8%;
   padding: 5px;
 }
 
@@ -251,7 +255,9 @@ body {
   height: 100%;
   background-color: rgba(255, 255, 255, 0);
   border: none;
+  font-size: 1.5rem;
   font-family: 'VT323', monospace, sans-serif;
+  cursor: pointer;
 }
 
 @-webkit-keyframes zoom-in {
