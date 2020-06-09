@@ -111,8 +111,7 @@ body {
 .start-game__instructions {
   width: 100%;
   min-width: 250px;
-  font-size: 1.2rem;
-  line-height: 100%;
+  font-size: 2.4vh;
   text-align: center;
   padding: 10px 0 0;
   display: flex;
