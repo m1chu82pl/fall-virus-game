@@ -121,6 +121,12 @@ body {
   flex-wrap: wrap;
 }
 
+.start-game__instructions--header {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 0 2vh;
+}
+
 .start-game__instructions--img {
   height: 7%;
   width: 100%;
@@ -157,7 +163,7 @@ body {
 
 .start-game .version {
   position: absolute;
-  font-size: 7px;
+  font-size: 8px;
   left: 1px;
   bottom: 1px;
 }
