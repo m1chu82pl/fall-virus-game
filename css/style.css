@@ -19,7 +19,7 @@ section {
 body {
   background-color: rgba(0, 0, 0, 0.534);
   box-sizing: border-box;
-  font-family: 'Pangolin', sans-serif;
+  font-family: 'VT323', monospace, sans-serif;
   cursor: crosshair;
 }
 
@@ -76,6 +76,7 @@ body {
   opacity: 0.3;
   flex-basis: 100%;
   font-size: 3rem;
+  font-family: 'VT323', monospace;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -245,7 +246,7 @@ body {
   height: 100%;
   background-color: rgba(255, 255, 255, 0);
   border: none;
-  font-family: 'Pangolin', cursive;
+  font-family: 'VT323', monospace, sans-serif;
 }
 
 @-webkit-keyframes zoom-in {
